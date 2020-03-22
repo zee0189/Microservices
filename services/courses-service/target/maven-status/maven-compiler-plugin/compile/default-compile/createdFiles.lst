@@ -1,0 +1,8 @@
+com\project\microserivces\coursesservice\CoursesServiceApplication.class
+com\project\microserivces\coursesservice\repositories\CourseRepository.class
+com\project\microserivces\coursesservice\model\Course.class
+com\project\microserivces\coursesservice\model\Course$CourseBuilder.class
+com\project\microserivces\coursesservice\model\Professors.class
+com\project\microserivces\coursesservice\service\CourseService.class
+com\project\microserivces\coursesservice\model\Slot.class
+com\project\microserivces\coursesservice\controller\CourseController.class

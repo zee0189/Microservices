@@ -19,6 +19,7 @@
     <modules>
         <module>eureka-discovery-service</module>
         <module>zuul-api-service</module>
+        <module>spring-cloud-config-server</module>
     </modules>
 
 </project>
