@@ -1,0 +1,50 @@
+server:
+  port: ${port}
+spring:
+  application:
+    name: user-ws
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: adminpass
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 20000
+    driver-class-name: org.postgresql.Driver
+    # https://vkuzel.com/spring-boot-jpa-hibernate-atomikos-postgresql-exception
+    jpa:
+      properties:
+        hibernate:
+          temp:
+            use_jdbc_metadata_defaults: false
+      database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+      hibernate:
+        ddl-auto: create-drop
+      show-sql: true
+  devtools:
+    restart:
+      enabled: true
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl :
+      registerWithEureka: false
+      fetchRegistry: false
+      defaultZone : http://localhost:8900/eureka
+
+management:
+  endpoint:
+    routes:
+      enabled: true
+    filters:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include : "*"
+
+
+
+

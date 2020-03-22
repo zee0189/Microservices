@@ -1,0 +1,48 @@
+server:
+  port: 8910
+spring:
+  application:
+    name: zuul-api-gateway
+  devtools:
+    restart:
+      enabled: true
+
+zuul:
+  stripPrefix: true
+  routes:
+    users:
+      serviceId: user-ws
+
+user-ws:
+  ribbon:
+    eureka:
+      enabled: false
+    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    listOfServers: http://localhost:8920,http://localhost:8921
+
+ribbon:
+  eureka:
+    enabled: false
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl :
+      registerWithEureka: false
+      fetchRegistry: false
+      defaultZone : http://localhost:8900/eureka
+
+management:
+  endpoint:
+    routes:
+      enabled: true
+    filters:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include : '*'
+
+
+
